@@ -138,6 +138,7 @@ class _DemoButtonsAndClickablesState extends State<DemoButtonsAndClickables> {
             padding: const EdgeInsets.all(8.0),
             child: PopupMenuButton(
               initialValue: 20,
+              icon: Icon(Icons.view_comfy_alt_outlined,size: 40,color: Colors.blueGrey,),
               onSelected: (value) {
                 print(value);
               },
