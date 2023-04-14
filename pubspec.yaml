@@ -17,28 +17,28 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  very_good_analysis: ^4.0.0+1
 
 flutter:
-
   uses-material-design: true
 
-
   assets:
-    - Assets/
+    - assets/
+    - assets/logo.png
 
   fonts:
     - family: Montserrat
       fonts:
-        - asset: Assets/Fonts/Montserrat/Montserrat-Regular.ttf
+        - asset: assets/Fonts/Montserrat/Montserrat-Regular.ttf
           weight: 400
-        - asset: Assets/Fonts/Montserrat/Montserrat-Medium.ttf
+        - asset: assets/Fonts/Montserrat/Montserrat-Medium.ttf
           weight: 500
 
     - family: Dongle
       fonts:
-        - asset: Assets/Fonts/Dongle/Dongle-Light.ttf
+        - asset: assets/Fonts/Dongle/Dongle-Light.ttf
           weight: 300
-        - asset: Assets/Fonts/Dongle/Dongle-Regular.ttf
+        - asset: assets/Fonts/Dongle/Dongle-Regular.ttf
           weight: 400
-        - asset: Assets/Fonts/Dongle/Dongle-Bold.ttf
+        - asset: assets/Fonts/Dongle/Dongle-Bold.ttf
           weight: 500
