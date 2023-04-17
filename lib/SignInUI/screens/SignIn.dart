@@ -24,6 +24,14 @@ class _SignInState extends State<SignIn> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    setState(() {
+      showPassword = !showPassword;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
@@ -59,7 +67,7 @@ class _SignInState extends State<SignIn> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 20, bottom: 0),
+                  padding: const EdgeInsets.only(left: 20, top: 20, bottom: 0)                               ,
                   child: Text(
                     'Your email address',
                     style: subTitleStyle.copyWith(fontWeight: FontWeight.w500, letterSpacing: 0.1),
@@ -69,8 +77,9 @@ class _SignInState extends State<SignIn> {
                 Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20),
                   child: Container(
-                    height: 40,
+                    height: 60,
                     child: TextField(
+                      autofocus: true,
                       style: TextStyle(fontFamily: 'Roboto', fontSize: 15),
                       decoration: inputDecoration,
                       keyboardType: TextInputType.emailAddress,
@@ -80,6 +89,9 @@ class _SignInState extends State<SignIn> {
                         setState(() {
                           isEnabled();
                         });
+                      },
+                      onTapOutside: (event){
+                        FocusScope.of(context).unfocus();
                       },
                     ),
                   ),
@@ -95,7 +107,7 @@ class _SignInState extends State<SignIn> {
                 Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20),
                   child: Container(
-                    height: 40,
+                    height: 60,
                     child: TextField(
                       style: TextStyle(fontFamily: 'Roboto', fontSize: 15),
                       obscureText: showPassword,
@@ -124,8 +136,7 @@ class _SignInState extends State<SignIn> {
             Padding(
               padding: const EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 30),
               child: ActionButton(
-                width: width,
-                height: height,
+
                 onTap: () {},
                 isEnabled: isEnabled(),
                 isBigger: true,
@@ -160,8 +171,7 @@ class _SignInState extends State<SignIn> {
                 Padding(
                   padding: const EdgeInsets.only(top: 25, left: 20, right: 20, bottom: 10),
                   child: SignUpButton(
-                    width: width,
-                    height: height,
+
                     path: googleLogoPath,
                     title: 'Sign up with Google',
                     onTap: () {},
@@ -170,8 +180,6 @@ class _SignInState extends State<SignIn> {
                 Padding(
                   padding: const EdgeInsets.only(top: 5, left: 20, right: 20, bottom: 30),
                   child: SignUpButton(
-                    width: width,
-                    height: height,
                     path: appleLogoPath,
                     title: 'Sign up with Apple',
                     onTap: () {},

@@ -43,7 +43,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   padding: EdgeInsets.only(bottom: height * 0.15),
                   child: Text('A platform built for a new way of working',style: subTitleStyle),
                 ),
-                ActionButton(width: width, height: height,onTap: onButtonPressed,isBigger: false,isEnabled: true,title: 'Get Started For Free',),
+                ActionButton(onTap: onButtonPressed,isBigger: false,isEnabled: true,title: 'Get Started For Free',),
               ],
             ),
             Positioned(
