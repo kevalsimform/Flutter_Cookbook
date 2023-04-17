@@ -4,31 +4,50 @@ import 'package:flutter_cookbook/flutterLogo.dart';
 import 'package:flutter_cookbook/textField.dart';
 import 'SignInUI/constants.dart';
 import 'SignInUI/screens/onboarding.dart';
+import 'TextFormField.dart';
+import 'focusScope.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primaryColor: Colors.redAccent,
-        primarySwatch: Colors.blueGrey,
+        // primaryColor: Colors.redAccent,
+        // primarySwatch: Colors.blueGrey,
         fontFamily: 'Dongle',
-        appBarTheme: AppBarTheme(color: Colors.blue, centerTitle: true),
+        // appBarTheme: AppBarTheme(color: Colors.blue, centerTitle: true),
         textTheme: TextTheme(
-          displayLarge: TextStyle(fontSize: 72.0, fontWeight: FontWeight.w400),
+          displayLarge: TextStyle(fontSize: 50.0, fontWeight: FontWeight.w400),
           titleLarge: TextStyle(fontSize: 25.0, fontStyle: FontStyle.normal),
         ),
+        buttonTheme: ButtonThemeData(),
       ),
-      darkTheme: ThemeData.dark(useMaterial3: true),
-      themeMode: ThemeMode.system,
+      darkTheme: ThemeData.dark().copyWith(
+        brightness: Brightness.dark
+        // primaryColor: Colors.red
+        //   fontFamily: 'Dongle',
+        //   // appBarTheme: AppBarTheme(color: Colors.blue, centerTitle: true),
+        //   textTheme: TextTheme(
+        //     displayLarge: TextStyle(fontSize: 50.0, fontWeight: FontWeight.w400),
+        //     titleLarge: TextStyle(fontSize: 25.0, fontStyle: FontStyle.normal),
+        //   ),
+        //   buttonTheme: ButtonThemeData(),
+        // buttonTheme: ButtonThemeData(buttonColor: Colors.grey,colorScheme: ColorScheme.dark())
+      ),
+      themeMode: ThemeMode.dark,
       home: const MyHomePage(),
     );
   }
@@ -44,6 +63,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+
+    Theme(data: ThemeData(),
+    child: Text(''),);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -51,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
           style: TextStyle(fontFamily: 'Dongle', fontSize: 30, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20))),
       ),
       body: SingleChildScrollView(
           child: Center(
@@ -68,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(
                         // fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.normal,
-                        fontSize: 25),
+                        fontSize: 20),
                   )),
               ElevatedButton(
                   onPressed: () {
@@ -76,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   child: Text(
                     'Flutter Logo',
-                    style: TextStyle(fontSize: 25),
+                    style: TextStyle(fontSize: 20),
                   )),
               ElevatedButton(
                   onPressed: () {
@@ -84,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   child: Text(
                     'Buttons And Clickables',
-                    style: TextStyle(fontSize: 25),
+                    style: TextStyle(fontSize: 20),
                   )),
               ElevatedButton(
                   onPressed: () {
@@ -92,8 +114,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   child: Text(
                     'SignIn UI',
-                    style: TextStyle(fontSize: 25),
+                    style: TextStyle(fontSize: 20),
                   )),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => DemoTextFormField()));
+                  },
+                  child: Text(
+                    'Text Form Field',
+                    style: TextStyle(fontSize: 20),
+                  )),
+              // ElevatedButton(
+              //     onPressed: () {
+              //       Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyStatefulWidget()));
+              //     },
+              //     child: Text(
+              //       'Focus Scope',
+              //       style: TextStyle(fontSize: 25),
+              //     )),
 
             ],
           ),

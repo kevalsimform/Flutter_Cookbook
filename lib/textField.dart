@@ -50,6 +50,7 @@ class _DemoTextFieldState extends State<DemoTextField> {
               ElevatedButton(
                 onPressed: () {
                   FocusScope.of(context).requestFocus(focusNode1);
+                  FocusScope.of(context);
                 },
                 child: Text('Focus on next textField'),
               ),
